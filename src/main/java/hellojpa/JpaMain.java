@@ -19,8 +19,9 @@ public class JpaMain {
             member.setName("helloB");
 
             em.persist(member);
-        } catch (Exception e) {
             tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
         } finally {
             em.close();
         }
